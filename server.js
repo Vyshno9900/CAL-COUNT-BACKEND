@@ -5,10 +5,10 @@ import cors from "cors";
 const app = express();
 const PORT = process.env.PORT || 10000;
 
-// Gemini API key (set as environment variable on Render)
-const API_KEY = process.env.GEMINI_API_KEY;
+// Replace with your Gemini API key
+const API_KEY = "AIzaSyCjJh9O908yFWMBnTst196RsmGmbfA8oZw";
 
-app.use(cors()); // Enable CORS for all origins
+app.use(cors());
 app.use(express.json());
 
 app.post("/api/gemini", async (req, res) => {
@@ -16,7 +16,7 @@ app.post("/api/gemini", async (req, res) => {
     const { prompt } = req.body;
 
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
