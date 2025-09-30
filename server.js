@@ -5,9 +5,10 @@ import cors from "cors";
 const app = express();
 const PORT = process.env.PORT || 10000;
 
-const API_KEY = process.env.GEMINI_API_KEY; // Set this on Render, NOT here
+// Gemini API key (set as environment variable on Render)
+const API_KEY = process.env.GEMINI_API_KEY;
 
-app.use(cors());
+app.use(cors()); // Enable CORS for all origins
 app.use(express.json());
 
 app.post("/api/gemini", async (req, res) => {
